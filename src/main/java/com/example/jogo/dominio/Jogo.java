@@ -1,7 +1,11 @@
 package com.example.jogo.dominio;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.Date;
+@JsonFormat
 @Entity
 @Table(name = "jogo")
 public class Jogo {
@@ -10,14 +14,24 @@ public class Jogo {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    private String nome;
 
+    @Column(length = 10)
+    private String codjogo;
 
-    private Integer nome;
-    private Integer codjogo;
-    private Integer anolancamento;
-    private Integer genero;
+    private String anolancamento;
+
+    private String genero;
     private Float valor;
-    private Integer produtora;
+    private String produtora;
+
+    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    private Date dataHoraCadastro;
+
+    private Jogo() {
+        this.setDataHoraCadastro(new Date());
+
+    }
 
     public long getId() {
         return id;
@@ -27,35 +41,35 @@ public class Jogo {
         this.id = id;
     }
 
-    public Integer getNome() {
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(Integer nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public Integer getCodjogo() {
+    public String getCodjogo() {
         return codjogo;
     }
 
-    public void setCodjogo(Integer codjogo) {
+    public void setCodjogo(String codjogo) {
         this.codjogo = codjogo;
     }
 
-    public Integer getAnolancamento() {
+    public String getAnolancamento() {
         return anolancamento;
     }
 
-    public void setAnolancamento(Integer anolancamento) {
+    public void setAnolancamento(String anolancamento) {
         this.anolancamento = anolancamento;
     }
 
-    public Integer getGenero() {
+    public String getGenero() {
         return genero;
     }
 
-    public void setGenero(Integer genero) {
+    public void setGenero(String genero) {
         this.genero = genero;
     }
 
@@ -67,11 +81,20 @@ public class Jogo {
         this.valor = valor;
     }
 
-    public Integer getProdutora() {
+    public String getProdutora() {
         return produtora;
     }
 
-    public void setProdutora(Integer produtora) {
+    public void setProdutora(String produtora) {
         this.produtora = produtora;
     }
+
+    public Date getDataHoraCadastro() {
+        return dataHoraCadastro;
+    }
+
+    public void setDataHoraCadastro(Date dataHoraCadastro) {
+        this.dataHoraCadastro = dataHoraCadastro;
+    }
+
 }

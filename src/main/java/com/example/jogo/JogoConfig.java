@@ -1,4 +1,4 @@
-package com.example.jogo.resource;
+package com.example.jogo;
 
 
 import org.springframework.context.annotation.Configuration;

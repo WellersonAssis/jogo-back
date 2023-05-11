@@ -18,43 +18,24 @@ public class ErrorJSON {
         this.setPath((String) errorAttributes.get("path"));
     }
 
-    public String getError() {
-        return error;
-    }
+    public int getStatus() {return status;}
 
-    public void setError(String error) {
-        this.error = error;
-    }
+    public void setStatus(int status) {this.status = status;}
 
-    public int getStatus() {
-        return status;
-    }
+    public String getError() {return error;}
 
-    public void setStatus(int status) {
-        this.status = status;
-    }
+    public void setError(String error) {this.error = error;}
 
-    public String getMessage() {
-        return message;
-    }
+    public String getMessage() {return message;}
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+    public void setMessage(String message) {this.message = message;}
 
-    public String getMoment() {
-        return moment;
-    }
+    public String getMoment() {return moment;}
 
-    public void setMoment(String moment) {
-        this.moment = moment;
-    }
+    public void setMoment(String moment) {this.moment = moment;}
 
-    public String getPath() {
-        return path;
-    }
+    public String getPath() {return path;}
 
-    public void setPath(String path) {
-        this.path = path;
-    }
+    public void setPath(String path) {this.path = path;}
 }
+
