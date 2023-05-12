@@ -10,17 +10,14 @@ public class JogoController {
     }
 
     private boolean isNomeValido(Jogo jogo) {
-        if ((jogo.getNome().isEmpty())  || jogo.getNome().length() < 3) {
-            return false;
-        }
+        return (!jogo.getNome().isEmpty()) && jogo.getNome().length() >= 3;
 
-        return true;
     }
 
     public boolean isCodjogoValido(Jogo jogo) {
         if (jogo.getCodjogo().isEmpty()) return false;
         if (jogo.getCodjogo().length() < 2) return false;
-        return jogo.getCodjogo().matches(("(?=.*[a-zA-Z])(?=.*[0-9]).+"));
+        return jogo.getCodjogo().matches("(?=.*[a-zA-Z])(?=.*[0-9]).+");
 
 
     }

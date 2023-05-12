@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
-@JsonFormat
+
 @Entity
 @Table(name = "jogo")
 public class Jogo {
@@ -22,10 +22,10 @@ public class Jogo {
     private String anolancamento;
 
     private String genero;
-    private Float valor;
+    private String valor;
     private String produtora;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private Date dataHoraCadastro;
 
     private Jogo() {
@@ -73,11 +73,11 @@ public class Jogo {
         this.genero = genero;
     }
 
-    public Float getValor() {
+    public String getValor() {
         return valor;
     }
 
-    public void setValor(Float valor) {
+    public void setValor(String valor) {
         this.valor = valor;
     }
 

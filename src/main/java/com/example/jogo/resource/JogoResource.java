@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "/api/v2/jogo")
+@RequestMapping(value = "/api/jogo")
 public class JogoResource {
 
     @Autowired
@@ -28,7 +28,7 @@ public class JogoResource {
     @PostMapping("/create")
     public ResponseEntity<Jogo> create(@RequestBody Jogo jogo) {
         JogoController jogoController = new JogoController();
-        if (!jogoController.isJogoValido(jogo)) {
+        if (jogoController.isJogoValido(jogo)) {
             return new ResponseEntity("Dados do jogo inválido", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
