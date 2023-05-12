@@ -46,7 +46,7 @@ public class JogoResource {
     @PutMapping("/edit")
     public ResponseEntity<Jogo> editar(@RequestBody Jogo jogo) {
         JogoController jogoController = new JogoController();
-        if (!jogoController.isJogoValido(jogo)) {
+        if (jogoController.isJogoValido(jogo)) {
             return new ResponseEntity("Nome do jogo é invalido", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
