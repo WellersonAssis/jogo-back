@@ -28,9 +28,15 @@ public class JogoResource {
     @PostMapping("/create")
     public ResponseEntity<Jogo> create(@RequestBody Jogo jogo) {
         JogoController jogoController = new JogoController();
-        if (jogoController.isJogoValido(jogo)) {
+
+        if (!jogoController.isJogoValido(jogo)) {
             return new ResponseEntity("Dados do jogo inválido", HttpStatus.INTERNAL_SERVER_ERROR);
         }
+
+        if (jogoRepository.existsByNome(jogo.getNome())) {
+            return new ResponseEntity("Já existe um jogo com o mesmo nome", HttpStatus.CONFLICT);
+        }
+
 
         jogo.setDataHoraCadastro(new Date());
         jogo = jogoRepository.save(jogo);
