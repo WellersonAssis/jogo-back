@@ -22,16 +22,18 @@ public class Jogo {
     private String anolancamento;
 
     private String genero;
-    private String valor;
+    private Float valor;
     private String produtora;
 
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private Date dataHoraCadastro;
 
-    private Jogo() {
+    public Jogo() {
         this.setDataHoraCadastro(new Date());
 
     }
+
+
 
     public long getId() {
         return id;
@@ -73,13 +75,6 @@ public class Jogo {
         this.genero = genero;
     }
 
-    public String getValor() {
-        return valor;
-    }
-
-    public void setValor(String valor) {
-        this.valor = valor;
-    }
 
     public String getProdutora() {
         return produtora;
@@ -97,4 +92,11 @@ public class Jogo {
         this.dataHoraCadastro = dataHoraCadastro;
     }
 
+    public Float getValor() {
+        return valor;
+    }
+
+    public void setValor(Float valor) {
+        this.valor = valor;
+    }
 }
