@@ -49,7 +49,7 @@ public class JogoResource {
         return jogoRepository.findById(id);
     }
 
-    @PutMapping("/edit")
+    @PutMapping("/edit/")
     public ResponseEntity<Jogo> editar(@RequestBody Jogo jogo) {
         JogoController jogoController = new JogoController();
         if (jogoController.isJogoValido(jogo)) {
