@@ -52,13 +52,21 @@ public class JogoResource {
     @PutMapping("/edit/")
     public ResponseEntity<Jogo> editar(@RequestBody Jogo jogo) {
         JogoController jogoController = new JogoController();
-        if (jogoController.isJogoValido(jogo)) {
-            return new ResponseEntity("Nome do jogo é invalido", HttpStatus.INTERNAL_SERVER_ERROR);
+
+        if (!jogoController.isJogoValido(jogo)) {
+            return new ResponseEntity("Dados do jogo inválido", HttpStatus.INTERNAL_SERVER_ERROR);
         }
+        if (jogoRepository.existsByNome(jogo.getNome())) {
+            return new ResponseEntity("Já existe um jogo com o mesmo nome", HttpStatus.CONFLICT);
+        }
+
 
         jogo = jogoRepository.save(jogo);
         return new ResponseEntity(jogo, HttpStatus.OK);
+
+
     }
+
 
     @GetMapping("/total")
     public long getTotal() {

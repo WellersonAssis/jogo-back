@@ -12,7 +12,7 @@ public class JogoController {
 
 
 
-    private boolean isNomeValido(Jogo jogo) {
+    public boolean isNomeValido(Jogo jogo) {
         if ((jogo.getNome().isEmpty()) || jogo.getNome().length() < 3) {
             return false;
         }
